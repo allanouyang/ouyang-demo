@@ -1,0 +1,5 @@
+﻿# 忽略idea工程文件
+ouyang-demo.iml
+# 忽略target目录
+target
+.DS_Store
