@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>simple velocity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+姓名：$name<br/>
+日期：$date<br/>
+事情列表：<br/>
+<table border="1">
+<thead>
+<tr>
+	<td>序号</td>
+	<td>内容</td>
+</tr>
+</thead>
+<tbody>
+#foreach ($element in $list)
+<tr>
+	<td>$velocityCount</td>
+	<td>$element</td>
+</tr>
+#end
+</tbody>
+</table>
+</body>
+</html>

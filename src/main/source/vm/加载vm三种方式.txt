@@ -1,0 +1,29 @@
+Velocity中加载vm文件的三种方式：
+ 
+方式一：加载classpath目录下的vm文件
+Properties p = new Properties();
+p.put("file.resource.loader.class",
+"org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+Velocity.init(p);
+...
+Velocity.getTemplate(templateFile);
+ 
+ 
+方式二：根据绝对路径加载，vm文件置于硬盘某分区中，如：d://tree.vm
+Properties p = new Properties();
+p.setProperty(VelocityEngine.FILE_RESOURCE_LOADER_PATH, "d://");
+Velocity.init(p);
+...
+Velocity.getTemplate("tree.vm");
+ 
+ 
+方式三：使用文本文件，如：velocity.properties，配置如下：
+input.encoding = UTF-8
+file.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+ 
+再利用如下方式进行加载
+Properties p = new Properties();
+p.load(this.getClass().getResourceAsStream("/velocity.properties"));
+Velocity.init(p);
+...
+Velocity.getTemplate(templateFile);
